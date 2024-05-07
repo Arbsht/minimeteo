@@ -13,6 +13,7 @@ export class AppComponent {
   clouds: any;
   desc: any;
   feelslike: any;
+  apikey = '';
   loading = false;
 
   constructor() {}
@@ -21,7 +22,7 @@ export class AppComponent {
 
   prendiMeteo(citta: any) {
     alert(citta);
-    fetch('https://api.openweathermap.org/data/2.5/weather?q='+citta+'&appid=472703e7d45c5b3a115bf2f3ec52ef61&units=metric&lang=it')
+    fetch('https://api.openweathermap.org/data/2.5/weather?q='+citta+'&appid='+apikey+'&units=metric&lang=it')
     .then(response => response.json())
     .then(data => {
       this.temp = data['main']['temp'];
