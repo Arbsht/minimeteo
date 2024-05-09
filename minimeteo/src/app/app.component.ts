@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'minimeteo';
   nome: any;
   temp: any;
-  clouds: any;
+  umidita: any;
   desc: any;
   feelslike: any;
   countrycode: any;
@@ -21,6 +21,9 @@ export class AppComponent {
   sunset: any;
   icona: any;
   error = false;
+  mintemp: any;
+  maxtemp: any;
+  vento: any;
   
 
   constructor() {}
@@ -46,11 +49,14 @@ export class AppComponent {
       this.temp = data['main']['temp'];
       this.nome = data['name'];
       this.desc = data['weather'][0]['description'];
-      this.clouds = data['clouds']['all'];
+      this.umidita = data['main']['humidity'];
       this.feelslike = data['main']['feels_like'];
       this.countrycode = data['sys']['country'];
       this.sunrise = data['sys']['sunrise'];
       this.sunset = data['sys']['sunset'];
+      this.mintemp = data['main']['temp_min'];
+      this.maxtemp = data['main']['temp_max'];
+      this.vento = data['wind']['speed'];
       this.icona = data['weather'][0]['icon'];
       this.icona = 'https://openweathermap.org/img/wn/'+this.icona+'@2x.png';
       this.sunrise = this.sunrise;
